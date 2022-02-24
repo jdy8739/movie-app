@@ -6,23 +6,20 @@ import { Provider } from 'react-redux';
 import store from './store';
 
 function App() {
-
   return (
-    <div className="App">
+    <Router basename={ process.env.PUBLIC_URL }>
       <Provider store={ store }>
-        <Router basename={process.env.PUBLIC_URL}>
-          <Switch>
-            <Route path="/detail/:id">
-            <Detail/>
-            </Route>
-            <Route path="/">
-              <Home/>
-            </Route>
-          </Switch>
-        </Router>
+        <Switch>
+          <Route path="/detail/:id">
+            <Detail />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+        {/* url이 단순할수록 아래로 */}
       </Provider>
-      {/* url이 단순할수록 아래로 */}
-    </div>
+    </Router>
   );
 }
 

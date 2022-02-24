@@ -30,6 +30,7 @@ function Home({ movieList, saveMoviesToStore }) {
 
   return (
     <div className="App">
+      <p>my app covered</p>
       <div>
         <div className='container'>
           {
