@@ -13,7 +13,7 @@ function Movie({ movieImg, title, year, summary, genres, bg, id }) {
                         <p>{ summary.length > 450 ? `${summary.slice(0, 450)}...` : summary }</p>
                         <ul>
                         {
-                            genres.map((genre, i) => {
+                            genres?.map((genre, i) => {
                                 return (
                                     <li key={i}>{ genre }</li>
                                 )

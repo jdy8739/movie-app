@@ -5,9 +5,9 @@ import Detail from './routes/Detail';
 import { Provider } from 'react-redux';
 import store from './store';
 
-function App() {
+function App() { //basename={ process.env.PUBLIC_URL }
   return (
-    <Router basename={ process.env.PUBLIC_URL }>
+    <Router>
       <Provider store={ store }>
         <Switch>
           <Route path="/detail/:id">

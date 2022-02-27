@@ -17,6 +17,7 @@ function Home({ movieList, saveMoviesToStore }) {
       axios.get(targetUrl)
         .then(res => {
           const fetchedMovies = res.data.data.movies;
+          console.log(fetchedMovies);
           setMovies(fetchedMovies);
           setIsLoading(false);
           saveMoviesToStore(fetchedMovies);
@@ -24,33 +25,35 @@ function Home({ movieList, saveMoviesToStore }) {
     } else {
       setMovies(movieList);
       setIsLoading(false);
-    }
-
+    };
   }, []);
 
   return (
     <div className="App">
-      <p>my app covered</p>
-      <div>
-        <div className='container'>
-          {
-            isLoading ?
-            <div className='loading-ani'>
-              <img src={ require('./855.gif') }></img>
-              <br></br>
-              I am Loading...
-            </div>
-            : 
-            movies.map((movie, i) => {
-              return (
-                <div key={i}>
-                  <Movie bg={movie.background_image_original} movieImg={movie.medium_cover_image} title={movie.title} year={movie.year}
-                  summary={movie.summary} genres={movie.genres} id={movie.id}/>
-                </div>
-              )
-            })
-          }
-        </div>
+      <div className='container'>
+        {
+          isLoading ?
+          <div className='loading-ani'>
+            <img src={ require('./855.gif') }></img>
+            <br></br>
+            I am Loading...
+          </div>
+          : 
+          movies.map((movie, i) => {
+            return (
+              <div key={i}>
+                <Movie 
+                bg={movie.background_image_original} 
+                movieImg={movie.medium_cover_image} 
+                title={movie.title} 
+                year={movie.year}
+                summary={movie.summary} 
+                genres={movie.genres} 
+                id={movie.id} />
+              </div>
+            )
+          })
+        }
       </div>
     </div>
   );
@@ -61,7 +64,7 @@ function mapStateToProps(state) {
 };
 
 function mapDispatchToProps(dispatch) {
-  return { saveMoviesToStore: (movies) => { dispatch(saveMovies(movies)); } }
-}
+  return { saveMoviesToStore: (movies) => { dispatch(saveMovies(movies)); } };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
