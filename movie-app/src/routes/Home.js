@@ -17,7 +17,6 @@ function Home({ movieList, saveMoviesToStore }) {
       axios.get(targetUrl)
         .then(res => {
           const fetchedMovies = res.data.data.movies;
-          console.log(fetchedMovies);
           setMovies(fetchedMovies);
           setIsLoading(false);
           saveMoviesToStore(fetchedMovies);

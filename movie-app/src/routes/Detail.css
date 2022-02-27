@@ -21,6 +21,23 @@ body {
     opacity: 1;
 }
 
+.img-box {
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+}
+
+.main-img {
+    border-radius: 12px;
+    box-shadow: 10px 15px 12px 1px rgba(0, 0, 0, .2);
+    transition: all 1s;
+    cursor: pointer;
+}
+
+.main-img:hover {
+    transform: scale(1.03);
+}
+
 .flex-box {
     display: flex;
     justify-content: center;
@@ -30,7 +47,22 @@ body {
     margin: 12px;
 }
 
+.flex-box>a {
+    text-decoration: none;
+    color: rgb(192, 192, 192);
+    transition: all 1s;
+}
+
+.flex-box>a:hover {
+    color: red;
+}
+
+.flex-box>a:last-child {
+    margin-top: 16px;
+}
+
 .desc-container {
     width: 50%;
     margin: auto;
+    text-align: center;
 }
